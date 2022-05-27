@@ -1,7 +1,6 @@
-package com.test.naceapi.domain.Transaction;
+package com.test.naceapi.domain.transaction;
 
 import org.json.JSONObject;
-
 import javax.persistence.*;
 
 @Entity
@@ -12,22 +11,23 @@ public class NaceEntity {
 
     }
 
-    public NaceEntity(String... args) {
-        naceOrder = args[0];
-        level = args[1];
-        code = args[2];
-        description = args[3];
-        parent = args[4];
-        includes = args[5];
-        alsoIncludes = args[6];
-        rulings = args[7];
-        excludes = args[8];
-        refernce = args[9];
+    public NaceEntity(String order, String level, String code, String parent, String description, String thisItemIncludes, String thisItemAlsoIncludes, String rulings, String thisItemExcludes, String refernce) {
+        naceOrder = order;
+        this.level = level;
+        this.code = code;
+        this.description = description;
+        this.parent = parent;
+        this.includes = thisItemIncludes;
+        alsoIncludes = thisItemAlsoIncludes;
+        this.rulings = rulings;
+        excludes = thisItemExcludes;
+        this.refernce = refernce;
     }
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private Long id;
 
     private String naceOrder;
 
@@ -52,7 +52,6 @@ public class NaceEntity {
     private String excludes;
 
     private String refernce;
-
 
     public String getNaceOrder() {
         return naceOrder;

@@ -1,6 +1,6 @@
 package com.test.naceapi.domain;
 
-import com.test.naceapi.domain.Transaction.NaceEntity;
+import com.test.naceapi.domain.transaction.NaceEntity;
 import com.test.naceapi.domain.model.ResponseMessage;
 import com.test.naceapi.domain.util.CSVHelper;
 import com.test.naceapi.exceptions.InvalidFileFormatException;

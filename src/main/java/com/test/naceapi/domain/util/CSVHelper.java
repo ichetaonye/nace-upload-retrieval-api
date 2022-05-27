@@ -1,6 +1,6 @@
 package com.test.naceapi.domain.util;
 
-import com.test.naceapi.domain.Transaction.NaceEntity;
+import com.test.naceapi.domain.transaction.NaceEntity;
 import com.test.naceapi.exceptions.TechnicalException;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;

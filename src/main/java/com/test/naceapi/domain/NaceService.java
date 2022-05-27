@@ -1,6 +1,6 @@
 package com.test.naceapi.domain;
 
-import com.test.naceapi.domain.Transaction.NaceEntity;
+import com.test.naceapi.domain.transaction.NaceEntity;
 import com.test.naceapi.domain.model.ResponseMessage;
 import com.test.naceapi.domain.util.CSVHelper;
 import com.test.naceapi.exceptions.InvalidFileFormatException;
@@ -8,7 +8,6 @@ import com.test.naceapi.exceptions.OrderNotFoundException;
 import com.test.naceapi.exceptions.TechnicalException;
 import com.test.naceapi.repository.NaceRepository;
 import org.json.JSONObject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 

@@ -1,6 +1,6 @@
 package com.test.naceapi.repository;
 
-import com.test.naceapi.domain.Transaction.NaceEntity;
+import com.test.naceapi.domain.transaction.NaceEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;

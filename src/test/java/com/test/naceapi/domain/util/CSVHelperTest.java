@@ -1,7 +1,6 @@
 package com.test.naceapi.domain.util;
 
-import com.test.naceapi.domain.Transaction.NaceEntity;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
+import com.test.naceapi.domain.transaction.NaceEntity;
 import org.junit.jupiter.api.Test;
 import org.springframework.mock.web.MockMultipartFile;
 import org.springframework.web.multipart.MultipartFile;

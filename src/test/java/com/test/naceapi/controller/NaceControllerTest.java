@@ -2,6 +2,7 @@ package com.test.naceapi.controller;
 
 import com.test.naceapi.domain.NaceService;
 import com.test.naceapi.domain.model.ResponseMessage;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.multipart.MultipartFile;
 import java.util.LinkedHashMap;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -44,7 +46,7 @@ public class NaceControllerTest {
                 String.class);
 
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
-        assertThat(response.getBody().compareToIgnoreCase("Uploaded the file successfully: Nacetest.csv"));
+        assertTrue(response.getBody().contains("Uploaded the file successfully"));
     }
 
     @Test
@@ -56,7 +58,7 @@ public class NaceControllerTest {
         ResponseMessage responseFromUpload = naceService.save(multipartFileToSend);
         assertThat(responseFromUpload).isNotNull();
         assertThat(responseFromUpload.getMessage()).isEqualTo("Uploaded the file successfully: Nacetest.csv");
-        ResponseEntity<Object> response = this.restTemplate.getForEntity("/v1.0/nace?order=398481",
+        ResponseEntity<Object> response = this.restTemplate.getForEntity("/v1.0/nace?orderId=398481",
                 Object.class);
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.OK);
         assertThat(response.getBody()).isNotNull();
@@ -67,7 +69,7 @@ public class NaceControllerTest {
     @Test
     public void should_Return_No_Content_If_Order_Doesnt_Exist() {
 
-        ResponseEntity<Object> response = this.restTemplate.getForEntity("/v1.0/nace?order=38333",
+        ResponseEntity<Object> response = this.restTemplate.getForEntity("/v1.0/nace?orderId=38333",
                 Object.class);
 
         assertThat(response.getStatusCode()).isEqualByComparingTo(HttpStatus.NO_CONTENT);
